@@ -1,0 +1,289 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+
+{% block title %}
+  {% if category %}{{ category.name }}{% else %}FOR SOUL{% endif %}
+{% endblock %}
+
+{% block content %}
+    <div id="carousel" class="carousel slide carousel-fade d-none d-md-block" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            {% for slide in slides %}
+                {% if slide.index_number == 1 %}
+                    <button type="button" data-bs-target="#carousel" data-bs-slide-to="{{ forloop.counter0 }}"
+                            class="active" aria-current="true" aria-label="Slide {{ slide.index_number }}"></button>
+                {% else %}
+                    <button type="button" data-bs-target="#carousel" data-bs-slide-to="{{ forloop.counter0 }}"
+                            aria-label="Slide {{ slide.index_number }}"></button>
+                {% endif %}
+
+            {% endfor %}
+        </div>
+        <div class="carousel-inner">
+            {% for slide in slides %}
+                <div class="carousel-item {% if slide.index_number == 1 %}active{% endif %}">
+                    {% if slide.link %}
+                        <a href="#"><img src="{% get_media_prefix %}{{ slide.image }}" class="d-block w-100" alt="..."></a>
+                    {% else %}
+                        <img src="{% get_media_prefix %}{{ slide.image }}" class="d-block w-100" alt="...">
+                    {% endif %}
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>{{ slide.first_title }}</h2>
+                        <h4>{{ slide.second_title }}</h4>
+                    </div>
+                </div>
+                {{ slide.image }}
+            {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <div class="section_header my-5 text-center">
+        <h2>Новинки</h2>
+
+    </div>
+    <div class="row px-3 px-md-0">
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+            <div class="product_card">
+                <div class="product_card_offer">
+                    <div class="offer_hit">Top</div>
+                    <div class="offer_new">New</div>
+                </div>
+                <div class="product_thumb">
+                    <a href="#">
+                        <img src="{% static 'img/posud.jpg' %}" alt="">
+                    </a>
+                </div>
+                <div class="product_details">
+                    <h4>
+                        <a href="#">Менажниця Lorem ipsum. Lorem ipsum dolor sit amet, consectetur adipisicing.</a>
+                    </h4>
+                    <div class="product_bottom_details d-flex justify-content-between align-items-center">
+                        <div class="product_price">
+                            <small class="me-1">56 грн</small>
+                            45 грн
+                        </div>
+                        <div class="product_actions">
+                            <a href="#" class="btn btn-sm btn-warning add_to_cart"><i class="fa-solid fa-heart"></i></a>
+                            <a href="#" class="btn btn-sm btn-warning add_to_cart"><i
+                                    class="fa-solid fa-cart-shopping"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+            <div class="product_card">
+                <div class="product_card_offer">
+                    <div class="offer_hit">Top</div>
+                    <div class="offer_new">New</div>
+                </div>
+                <div class="product_thumb">
+                    <a href="#">
+                        <img src="{% static 'img/posud.jpg' %}" alt="">
+                    </a>
+                </div>
+                <div class="product_details">
+                    <h4>
+                        <a href="#">Менажниця Lorem ipsum. Lorem ipsum dolor sit amet, consectetur adipisicing.</a>
+                    </h4>
+                    <div class="product_bottom_details d-flex justify-content-between align-items-center">
+                        <div class="product_price">
+                            <small class="me-1">56 грн</small>
+                            45 грн
+                        </div>
+                        <div class="product_actions">
+                            <a href="#" class="btn btn-sm btn-warning add_to_cart"><i class="fa-solid fa-heart"></i></a>
+                            <a href="#" class="btn btn-sm btn-warning add_to_cart"><i
+                                    class="fa-solid fa-cart-shopping"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+            <div class="product_card">
+                <div class="product_card_offer">
+                    <div class="offer_hit">Top</div>
+                    <div class="offer_new">New</div>
+                </div>
+                <div class="product_thumb">
+                    <a href="#">
+                        <img src="{% static 'img/posud.jpg' %}" alt="">
+                    </a>
+                </div>
+                <div class="product_details">
+                    <h4>
+                        <a href="#">Менажниця Lorem ipsum. Lorem ipsum dolor sit amet, consectetur adipisicing.</a>
+                    </h4>
+                    <div class="product_bottom_details d-flex justify-content-between align-items-center">
+                        <div class="product_price">
+                            <small class="me-1">56 грн</small>
+                            45 грн
+                        </div>
+                        <div class="product_actions">
+                            <a href="#" class="btn btn-sm btn-warning add_to_cart"><i class="fa-solid fa-heart"></i></a>
+                            <a href="#" class="btn btn-sm btn-warning add_to_cart"><i
+                                    class="fa-solid fa-cart-shopping"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+            <div class="product_card">
+                <div class="product_card_offer">
+                    <div class="offer_hit">Top</div>
+                    <div class="offer_new">New</div>
+                </div>
+                <div class="product_thumb">
+                    <a href="#">
+                        <img src="{% static 'img/posud.jpg' %}" alt="">
+                    </a>
+                </div>
+                <div class="product_details">
+                    <h4>
+                        <a href="#">Менажниця Lorem ipsum. Lorem ipsum dolor sit amet, consectetur adipisicing.</a>
+                    </h4>
+                    <div class="product_bottom_details d-flex justify-content-between align-items-center">
+                        <div class="product_price">
+                            <small class="me-1">56 грн</small>
+                            45 грн
+                        </div>
+                        <div class="product_actions">
+                            <a href="#" class="btn btn-sm btn-warning add_to_cart"><i class="fa-solid fa-heart"></i></a>
+                            <a href="#" class="btn btn-sm btn-warning add_to_cart"><i
+                                    class="fa-solid fa-cart-shopping"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+            <div class="product_card">
+                <div class="product_card_offer">
+                    <div class="offer_hit">Top</div>
+                    <div class="offer_new">New</div>
+                </div>
+                <div class="product_thumb">
+                    <a href="#">
+                        <img src="{% static 'img/posud.jpg' %}" alt="">
+                    </a>
+                </div>
+                <div class="product_details">
+                    <h4>
+                        <a href="#">Менажниця Lorem ipsum. Lorem ipsum dolor sit amet, consectetur adipisicing.</a>
+                    </h4>
+                    <div class="product_bottom_details d-flex justify-content-between align-items-center">
+                        <div class="product_price">
+                            <small class="me-1">56 грн</small>
+                            45 грн
+                        </div>
+                        <div class="product_actions">
+                            <a href="#" class="btn btn-sm btn-warning add_to_cart"><i class="fa-solid fa-heart"></i></a>
+                            <a href="#" class="btn btn-sm btn-warning add_to_cart"><i
+                                    class="fa-solid fa-cart-shopping"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+            <div class="product_card">
+                <div class="product_card_offer">
+                    <div class="offer_hit">Top</div>
+                    <div class="offer_new">New</div>
+                </div>
+                <div class="product_thumb">
+                    <a href="#">
+                        <img src="{% static 'img/posud.jpg' %}" alt="">
+                    </a>
+                </div>
+                <div class="product_details">
+                    <h4>
+                        <a href="#">Менажниця Lorem ipsum. Lorem ipsum dolor sit amet, consectetur adipisicing.</a>
+                    </h4>
+                    <div class="product_bottom_details d-flex justify-content-between align-items-center">
+                        <div class="product_price">
+                            <small class="me-1">56 грн</small>
+                            45 грн
+                        </div>
+                        <div class="product_actions">
+                            <a href="#" class="btn btn-sm btn-warning add_to_cart"><i class="fa-solid fa-heart"></i></a>
+                            <a href="#" class="btn btn-sm btn-warning add_to_cart"><i
+                                    class="fa-solid fa-cart-shopping"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+            <div class="product_card">
+                <div class="product_card_offer">
+                    <div class="offer_hit">Top</div>
+                    <div class="offer_new">New</div>
+                </div>
+                <div class="product_thumb">
+                    <a href="#">
+                        <img src="{% static 'img/posud.jpg' %}" alt="">
+                    </a>
+                </div>
+                <div class="product_details">
+                    <h4>
+                        <a href="#">Менажниця Lorem ipsum. Lorem ipsum dolor sit amet, consectetur adipisicing.</a>
+                    </h4>
+                    <div class="product_bottom_details d-flex justify-content-between align-items-center">
+                        <div class="product_price">
+                            <small class="me-1">56 грн</small>
+                            45 грн
+                        </div>
+                        <div class="product_actions">
+                            <a href="#" class="btn btn-sm btn-warning add_to_cart"><i class="fa-solid fa-heart"></i></a>
+                            <a href="#" class="btn btn-sm btn-warning add_to_cart"><i
+                                    class="fa-solid fa-cart-shopping"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="px-3 px-md-1 py-3 mb-5">
+        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi dolores error fuga id incidunt inventore
+            itaque iusto labore libero, necessitatibus nesciunt nisi officia possimus repellendus vel. Dolore facere
+            praesentium ullam.
+        </div>
+        <div>Aperiam cum deleniti distinctio dolorem, doloribus dolorum eius ex facilis fuga hic illo incidunt inventore
+            iusto molestiae molestias nam necessitatibus obcaecati odit quaerat quas sequi sint totam velit. At, totam.
+        </div>
+        <div>Asperiores fuga hic, illum iusto nam officia optio quisquam rem vero? At blanditiis corporis deleniti, esse
+            est
+            et illo ipsum magni molestiae, numquam pariatur provident quos rerum tempora temporibus! Laudantium?
+        </div>
+        <div>Alias delectus dignissimos, dolorem ducimus eaque ex expedita facilis fugiat incidunt laboriosam, natus
+            nesciunt placeat, quaerat repudiandae sint vel voluptatibus. Aliquam cum dolorem, esse id mollitia officia
+            quibusdam sint tempora!
+        </div>
+        <div>Cum dolores, enim error facere, facilis id itaque nulla omnis quam, recusandae rerum ullam voluptatibus.
+            Accusantium alias animi deleniti exercitationem expedita, impedit iste, nisi nostrum optio quas repellat
+            similique ullam!
+        </div>
+        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid beatae commodi cum delectus eligendi,
+            error
+            excepturi harum minima modi molestiae placeat porro quidem recusandae repellendus rerum sit velit voluptatem
+            voluptatum!
+        </div>
+        <div>Debitis deserunt doloremque ipsa optio saepe? Accusantium at consequuntur dignissimos esse facere fuga,
+            incidunt ipsum quas quis suscipit. Adipisci aliquid expedita nostrum perspiciatis quas sunt, tempora?
+            Expedita
+            fuga labore reprehenderit.
+        </div>
+    </div>
+
+{% endblock %}
